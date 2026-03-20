@@ -1,0 +1,117 @@
+/* --- 親レイアウトの影響をリセット --- */
+.min-h-screen {
+    background-color: #f8f9fa !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+/* 親コンポーネントのデフォルト枠を消去（Breezeの白い枠を非表示にする） */
+.min-h-screen > div {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    max-width: 800px !important;
+}
+
+/* --- メインレイアウト（新規登録・ログイン共通） --- */
+.register-layout-root {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* ① 右上のリンク（新規会員登録はこちら / ログインはこちら） */
+.top-nav-link {
+    text-align: right;
+    max-width: 570px; /* ラベル150px + 入力400px + 余白20px に合わせた幅 */
+    margin: 0 auto 10px auto;
+}
+
+.top-nav-link a {
+    color: #999;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.top-nav-link a:hover {
+    color: #666;
+}
+
+/* 中央タイトル（新規会員登録 / ログイン） */
+.main-title {
+    text-align: center;
+    font-size: 2.5rem; /* 画像イメージに合わせて少し大きく調整 */
+    color: #555;
+    margin-bottom: 50px;
+    font-weight: normal;
+}
+
+/* ②・③ 入力行の横並び設定 */
+.form-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+/* ラベル側 */
+.label-side {
+    width: 150px;
+    text-align: right;
+    margin-right: 20px;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* 入力欄側 */
+.input-side {
+    width: 400px;
+}
+
+.input-width-400 {
+    width: 100% !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    padding: 10px !important;
+    box-sizing: border-box;
+}
+
+/* エラーメッセージ */
+.error-text {
+    font-size: 0.8rem;
+    color: #e3342f;
+    margin-top: 4px;
+    text-align: left;
+}
+
+/* ④ ログイン・登録ボタンのエリア */
+.footer-action {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+/* オレンジ色のボタン共通スタイル */
+.btn-submit-orange {
+    background-color: #f27459; /* 画像に近い朱色 */
+    color: white;
+    font-size: 1.3rem;
+    padding: 12px 100px; /* 文字数が少ないので左右パディングを少し広めに設定 */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-submit-orange:hover {
+    opacity: 0.8;
+}
+
+/* Session Status (ログインエラー等の通知用メッセージ) のスタイル */
+.mb-4.text-center {
+    margin-bottom: 1.5rem;
+    color: #e3342f;
+    font-size: 0.9rem;
+}
