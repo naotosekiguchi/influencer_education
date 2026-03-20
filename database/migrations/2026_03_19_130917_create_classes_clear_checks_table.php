@@ -10,9 +10,11 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up() {
-        Schema::create('grades', function (Blueprint $table) {
+        Schema::create('classes_clear_checks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->integer('users_id');
+            $table->integer('grade_id');
+            $table->tinyInteger('clear_flg');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('grades_name');
+        Schema::dropIfExists('classes_clear_checks');
     }
 };
