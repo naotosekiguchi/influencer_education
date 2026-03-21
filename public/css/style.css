@@ -115,3 +115,127 @@
     color: #e3342f;
     font-size: 0.9rem;
 }
+
+/* ==========================================================================
+   追加：ユーザートップ画面 (Dashboard / Navigation)
+   ========================================================================== */
+
+/* 共通ヘッダー */
+.user-header {
+    background-color: #f27459;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header-inner {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    gap: 15px;
+}
+
+/* ティール色のヘッダーボタン */
+.nav-btn {
+    color: white !important;
+    text-decoration: none;
+    background-color: #1b8d98;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-teal {
+    padding: 10px 25px;
+    font-size: 1.3rem;
+}
+
+.btn-teal-small {
+    padding: 6px 15px;
+    font-size: 0.9rem;
+}
+
+.auth-link {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ユーザートップ コンテンツエリア */
+.user-top-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* バナー */
+.banner-main {
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.banner-indicators {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: #8c7b7b;
+    border-radius: 50%;
+    margin: 0 8px;
+}
+
+.dot.active {
+    background-color: #555;
+}
+
+/* お知らせ */
+.news-section {
+    margin-top: 40px;
+}
+
+.news-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.news-list-box {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 40px; /* 特徴的な丸み */
+    padding: 25px 50px;
+}
+
+.news-item {
+    display: flex;
+    gap: 40px;
+    padding: 12px 0;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.news-date {
+    font-weight: bold;
+    min-width: 150px;
+}
