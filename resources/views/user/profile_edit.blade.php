@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- 戻るボタン -->
-{{-- <a href="{{ route('user.show.top') }}">← 戻る</a> --}}
+<a href="{{ route('user.show.top') }}">← 戻る</a>
 
 <h2>プロフィール変更</h2>
 
@@ -15,6 +15,9 @@
     <div class="container_form">
         <label for="profile_image">プロフィール画像</label>
         <input type="file" name="profile_image" accept=".png, .jpg, .jpeg">
+        @if ($errors->has('profile_image'))
+            <p>{{ $errors->first('profile_image') }}</p>
+        @endif
     </div>
 
     <div class="container_form">

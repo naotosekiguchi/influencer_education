@@ -6,12 +6,12 @@
 
 
 <!-- 戻るボタン -->
-{{-- <a href="{{ route('admin.show.top') }}">← 戻る</a> --}}
+<a href="{{ route('admin.show.top') }}">← 戻る</a>
 
 <h2>お知らせ一覧</h2>
 
 <!-- 新規登録ボタン -->
-{{-- <a href="{{ route('admin.show.article.create') }}">新規登録</a> --}}
+<a href="{{ route('admin.show.article.create') }}">新規登録</a>
 
 <!-- お知らせ一覧テーブル -->
 <div class="articles">

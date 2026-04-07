@@ -29,13 +29,13 @@ class PasswordRequest extends FormRequest
     public function messages() {
         return[
             'old_pass.required' => '入力必須です。',
-            'old_pass.exists:users,password' => 'パスワードが違います。',
+            'old_pass.exists' => 'パスワードが違います。',
             'new_pass.required' => '入力必須です。',
-            'new_pass.max:255' => '255文字以下です。',
-            'new_pass.min:8' => '8文字以上です。',
+            'new_pass.max' => '255文字以下です。',
+            'new_pass.min' => '8文字以上です。',
             'new_pass.alpha_num' => '半角英数字で入力してください。',
             'new_pass_confirmation.required' => '入力必須です。',
-            'new_pass_confirmation.same:new_pass' => 'パスワードが違います。',
+            'new_pass_confirmation.same' => 'パスワードが違います。',
         ];
     }
 

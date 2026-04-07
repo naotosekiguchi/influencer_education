@@ -6,7 +6,7 @@
 </head>
 @section('content')
 <!-- 戻るボタン -->
-{{-- <a href="{{ route('user.show.top') }}">← 戻る</a> --}}
+<a href="{{ route('user.show.top') }}">← 戻る</a>
 
 <div class="profile">
     <!-- プロフィール画像 -->

@@ -30,6 +30,8 @@ Route::prefix('user')->namespace('User')->name('user.')->group(function () {
     //パスワード変更機能
     Route::post('/passwordedit{id}', [App\Http\Controllers\User\ProfileController::class, 'submitPasswordEdit'])->name('submit.password.edit');
 
+    //トップページ画面表示
+    Route::get('/top', [App\Http\Controllers\User\TopController::class, 'showTop'])->name('show.top');
     
 });
 
@@ -43,4 +45,9 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->group(function () {
     Route::get('/article_edit/{id}',[App\Http\Controllers\Admin\ArticleController::class, 'showArticleEdit'])->name('show.article.edit');
     //お知らせ変更機能
     Route::post('/articleedit{id}', [App\Http\Controllers\Admin\ArticleController::class,  'submitArticleEdit'])->name('submit.article.edit');
+    //トップページ画面表示
+    Route::get('/top', [App\Http\Controllers\Admin\TopController::class,  'showTop'])->name('show.top');
+    //お知らせ新規登録画面表示
+    Route::get('/article_create', [App\Http\Controllers\Admin\ArticleController::class,  'showArticleCreate'])->name('show.article.create');
+
 });

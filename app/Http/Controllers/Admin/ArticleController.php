@@ -63,4 +63,10 @@ class ArticleController extends Controller {
         return view('admin/article_list',['articles' => $articles]);
     }
 
+    
+    //お知らせ新規登録画面表示
+    public function showArticleCreate() {
+        return view('admin/article_create');
+    }
+
 }

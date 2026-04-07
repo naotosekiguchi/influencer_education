@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- 戻るボタン -->
-{{-- <a href="{{ route('user.show.top') }}">← 戻る</a> --}}
+<a href="{{ route('user.show.top') }}">← 戻る</a>
 
 <div class="container">
     <p>{{ $article->posted_date }}</p> <!-- 投稿日時 -->

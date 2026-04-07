@@ -14,7 +14,7 @@
     @csrf
     <div class="container_form">
         <label for="posted_date">投稿日時<span>*</span></label>
-        <input type="datetime-local" class="container_form-input" id="posted_date" name="posted_date" value="{{ $article->posted_date }}">
+        <input type="datetime-local" class="container_form-input" id="posted_date" name="posted_date" value="{{ $article->posted_date }}" step="1">
         @if ($errors->has('posted_date'))
             <p>{{ $errors->first('posted_date') }}</p>
         @endif

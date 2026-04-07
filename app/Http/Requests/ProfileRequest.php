@@ -19,7 +19,7 @@ class ProfileRequest extends FormRequest
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
     public function rules() {
-        if ($this->has('regist')){
+        if ($this->has('register')){
             return[
                 'profile_image' => 'mimes:jpg,png,jpeg',
                 'name' => 'required | max:255 | regex:/^[^\x01-\x7E\xA1-\xDF]*$/',
@@ -35,14 +35,14 @@ class ProfileRequest extends FormRequest
         return[
             'profile_image.mimes' => '対応していないファイル形式です。jpg, png, jpeg形式の画像を選択してください。',
             'name.required' => '入力必須です。',
-            'name.max:255' => '255文字以下です。',
-            'name.regex:/^[^\x01-\x7E\xA1-\xDF]*$/' => '全角で入力してください。',
+            'name.max' => '255文字以下です。',
+            'name.regex' => '全角で入力してください。',
             'name_kana.required' => '入力必須です。',
-            'name_kana.max:255' => '255文字以下です。',
-            'name_kana.regex:/^[^\x01-\x7E\xA1-\xDF]*$/' => '全角で入力してください。',
-            'name_kana.regex:/^[ァ-ヶー]+$/u' => 'カタカナで入力してください。',
+            'name_kana.max' => '255文字以下です。',
+            'name_kana.regex' => '全角で入力してください。',
+            'name_kana.regex' => 'カタカナで入力してください。',
             'email.required' => '入力必須です。',
-            'email.max:255' => '255文字以下です。',
+            'email.max' => '255文字以下です。',
             'email.alpha_num' => '半角英数字で入力してください。',
             'email.email' => 'メールアドレスの形式で入力してください。',
 

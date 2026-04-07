@@ -31,7 +31,7 @@ class ArticleRequest extends FormRequest
             'posted_date.required' => '入力必須です。',
             'posted_date.date_format' => '入力形式はYYYY/MM/DD HH:MM:SSです。',
             'title.required' => '入力必須です。',
-            'title.max:255' => '255文字以下です。',
+            'title.max' => '255文字以下です。',
             'article_contents.required' => '入力必須です。',
         ];
     }
