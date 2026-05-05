@@ -9,10 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up() {
-        Schema::create('banners', function (Blueprint $table) {
+    public function up(): void {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->string('title', 255);
+            $table->dateTime('posted_date');
+            $table->longText('article_contents');
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('banners');
+        Schema::dropIfExists('articles');
     }
 };
