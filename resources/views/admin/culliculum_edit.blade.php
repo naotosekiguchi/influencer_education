@@ -1,3 +1,10 @@
+@extends('layouts.app')
+
+@section('title', '授業編集ページ')
+
+@section('content')
+
 <div>
-    <!-- Because you are alive, everything is possible. - Thich Nhat Hanh -->
 </div>
+
+@endsection
