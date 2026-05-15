@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\DeliveryController;
 use Illuminate\Http\Request;
 use App\Models\Admin;
-use App\Http\Controllers\Admin\DeliveryController;
 
 class CurriculumController extends Controller
 {
