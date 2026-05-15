@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Models;
+use App\Models\Admin;
 use App\Http\Controllers\Admin\DeliveryController;
 
 class CurriculumController extends Controller
