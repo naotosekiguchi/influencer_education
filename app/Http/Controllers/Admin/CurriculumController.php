@@ -12,4 +12,13 @@ class CurriculumController extends Controller
     public function showCurriculumList() {
         return view('admin.curriculum_list');
     }
+
+    public function showCurriculumCreate() {
+        return view('admin.curriculum_create');
+    }
+
+    public function showCurriculumEdit() {
+        return view('admin.curriculum_edit');
+    }
+
 }
