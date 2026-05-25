@@ -1,0 +1,32 @@
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,img, 
+dl, dt, dd, ol, ul, li, form,tbody, tfoot, thead, tr, th, td,
+article, aside,footer, header, nav, section
+{
+    margin: auto;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    box-sizing: border-box;
+    width: auto;
+    vertical-align:baseline;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color:#F5F5F5;
+}
+.box {
+    margin: auto;
+    padding:50px 10px 0 50px;
+    width: auto;
+}
+.logout {
+    color: aqua;
+    font-size: 15px;
+}
+
+#curriculum_edit {
+    color: crimson;
+}
