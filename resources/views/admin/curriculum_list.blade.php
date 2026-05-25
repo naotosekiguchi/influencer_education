@@ -3,7 +3,6 @@
 @section('title', '授業一覧ページ')
 
 @section('styles')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/css/theme.default.min.css">
     <link href="{{ asset('css/curriculum_list_blade.css') }}" rel="stylesheet">
 @endsection
 
@@ -45,11 +44,12 @@
     </div>
 
 
-    @section('scripts')           <!-- ② セクションの開始 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script> <!--tablesorterの読み込み-->
-    <script src="{{ asset('js/list.js') }}"></script> <!--list.jsファイルを読み込む-->
+    <!--@section('scripts')  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.3/js/jquery.tablesorter.min.js"></script> 
+    <script src="{{ asset('js/list.js') }}"></script> 
     <script>
 
     </script>
+    @endsection-->
 
 @endsection
