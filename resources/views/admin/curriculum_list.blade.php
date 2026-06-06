@@ -9,7 +9,7 @@
 @section('content')
 
     @csrf
-    <div>
+    <div class="header">
         <button type="submit" id="curriculum_edit">授業管理</button>
         <button type="submit" id="article">お知らせ管理</button>
         <button type="submit" id="banner">バナー管理</button>
@@ -18,28 +18,33 @@
 
     <div class="box"> 
         <div>
-            <a href="{{ route('logout') }}">← 戻る</a>
+            <a href="{{ route('logout') }}" class="modoru">← 戻る</a>
             <h1>授業一覧</h1>
+        </div>
 
+        <div>
             <!-- 新規登録ボタン -->
-            <a href="{{ route('logout') }}">新規登録</a> <p>選択中の学年（仮）</p>
+            <button type="submit" href="{{ route('logout') }}" class="create_btn">新規登録</button>
+            <p class="grade">小学校〇年生
+                <!-- ＠foreach ( as )　選択した学年がはいる
+                <div>
+                    <p></p>
+                </div>
+                ＠endforeach -->
+            </p>
+        </div>
+        
+        <div class="grade_type">
+            <button type="submit"></button>
+            <!-- ＠foreach ( as )　各学年がはいる
+                <div>
+                    <p></p>
+                </div>
+            ＠endforeach -->
         </div>
       
-        <div class="TablE">
-            <table >
-                <thead>
-                    <tr>
-                        <th>＊＊</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-
-                    </tr>
-                </tbody>
-            </table>
+        <div class=>
+            <p>＊＊</p>
         </div>
     </div>
 

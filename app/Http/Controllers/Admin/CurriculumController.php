@@ -9,6 +9,8 @@ use App\Models\Admin;
 
 class CurriculumController extends Controller
 {
+
+
     public function showCurriculumList() {
         return view('admin.curriculum_list');
     }

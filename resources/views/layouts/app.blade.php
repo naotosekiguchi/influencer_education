@@ -9,10 +9,8 @@
     <title>@yield('title')</title>
 </head>
 <body>
-
-    <div class="container">
-        @yield('content')
-
-    </div>
+    @yield('content')
+    <script></script>
+    @yield('scripts')
 </body>
 </html>
