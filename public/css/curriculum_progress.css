@@ -1,0 +1,18 @@
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grade{
+    width: 33.33%; /* 3つ並べる */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.grade ul{
+    list-style: none; 
+}
+
+span{
+    color: #ff0000;
+}
