@@ -6,16 +6,33 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AdminLoginController extends Controller {
+
+    // ログイン画面表示
     public function create() {
         return view('admin.login');
     }
 
+    // ログイン処理
     public function store(Request $request) {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
+            'email' => [
+                'required', 
+                'max:255',
+            ],
+
+            'password' => [
+                'required',
+                'min:8',
+                'max:20',
+                'regex:/^[a-zA-Z0-9]+$/',
+            ],
+        ],
+        [
+            'password.min' => 'パスワードは8文字以上で入力してください。',
+            'password.regex' => 'パスワードは半角英数字で入力してください。',
         ]);
 
+        // ログイン認証
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -25,10 +42,11 @@ class AdminLoginController extends Controller {
         }
 
         return back()->withErrors([
-            'message' => 'メールアドレスかパスワードが間違っています',
+            'message' => '入力されたメールアドレスまたはパスワードが正しくありません。',
         ])->onlyInput('email');
     }
-
+    
+    // ログアウト処理
     public function destroy(Request $request) {
         Auth::guard('admin')->logout();
 
@@ -38,4 +56,5 @@ class AdminLoginController extends Controller {
 
         return to_route('admin.login');
     }
+    
 }

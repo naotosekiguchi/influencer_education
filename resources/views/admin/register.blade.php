@@ -26,7 +26,7 @@
     }
     .header-link {
         position: absolute;
-        top: 100px;
+        top: 90px;
         right: 120px;
         font-size: 25px;
         color: #999;
@@ -48,8 +48,8 @@
     　　タイトル
        ========================= */
     .page-title {
-        margin: 20px 0 160px;
-        font-size: 82px;
+        margin: 0 0 70px;
+        font-size: 70px;
         font-weight: normal;
         color: #757373;
     }
@@ -67,23 +67,22 @@
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     .form-row label {
-        width: 250px;
+        width: 160px;
         text-align: right;
         margin-right: 20px;
-        font-size: 25px;
+        font-size: 22px;
         color: #807e7e;
-        /* background: red; */
     }
 
     .form-row input {
         width: 670px;
         padding: 8px 10px;
         border: 1px solid #a2a1a1;
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .input-error {
@@ -101,15 +100,13 @@
         width: 670px;
     }
 
+    .input-area input {
+        width: 100%;
+    }
+
     .input-area .alert {
         min-height: 20px;
         margin-top: 5px;
-        font-size: 12px;
-        color: #c00;
-    }
-
-    .login-form > .alert {
-        margin-bottom: 16px;
         font-size: 12px;
         color: #c00;
     }
@@ -118,12 +115,12 @@
     　　ボタン
        ========================= */
     .form-submit {
-        margin-top: 60px;
+        margin-top: 30px;
         text-align: center;
     }
 
     .form-submit button {
-        padding: 0px 45px;
+        padding: 0px 85px;
         background: #696868;
         color: #fff;
         border: none;
@@ -138,26 +135,47 @@
 
 <div class="page-wrapper">
 
-    <a class="header-link" href="{{ route('admin.register') }}">新規会員登録はこちら</a>
+    <a class="header-link" href="{{ route('admin.login') }}">ログインはこちら</a>
 
         <div class="login-page">
 
-            <h1 class="page-title">管理画面ログイン</h1>
+            <h1 class="page-title">新規管理ユーザー登録</h1>
 
-            <form class="login-form" method="POST" action="{{ route('admin.login') }}">
+            <form class="login-form" method="POST" action="{{ route('admin.register.store') }}">
                 @csrf
 
-                @error('message')
-                    <div class="alert">{{ $message }}</div>
-                @enderror
+                <div class="form-row">
+                    <label for="name">ユーザーネーム</label>
+                    <input
+                        type="text" 
+                        name="name" 
+                        id="name"
+                        value="{{ old('name') }}"
+                        maxlength="255"
+                        class="@error('name') input-error @enderror" 
+                        
+                    />
+                </div>
+                
+                <div class="form-row">
+                    <label for="kana">カナ</label>
+                    <input 
+                        type="text" 
+                        name="kana" 
+                        id="kana"
+                        value="{{ old('kana') }}"
+                        maxlength="255"
+                        class="@error('kana') input-error @enderror"
+                    />
+                </div>
 
                 <div class="form-row">
                     <label for="email">メールアドレス</label>
 
                     <div class="input-area">
                         <input 
-                            type="text"
-                            name="email"
+                            type="text" 
+                            name="email" 
                             id="email"
                             value="{{ old('email') }}"
                             maxlength="255"
@@ -169,31 +187,51 @@
                                 <div class="alert">{{ $message }}</div>
                             @endif
                         @enderror
-                    </div>    
+                    </div>
                 </div>
 
                 <div class="form-row">
                     <label for="password">パスワード</label>
 
                     <div class="input-area">
-                    <input 
-                        type="password"
-                        name="password"
-                        id="password"
-                        maxlength="20"
-                        class="@error('password') input-error @enderror"
-                    />
+                        <input 
+                            type="password"
+                            name="password"
+                            id="password"
+                            maxlength="20"
+                            class="@error('password') input-error @enderror"
+                        />
 
-                    @error('password')
-                        @if ($message !== 'The password field is required.')
-                            <div class="alert">{{ $message }}</div>
-                        @endif
-                    @enderror
+                        @error('password')
+                            @if ($message !== 'The password field is required.')
+                                <div class="alert">{{ $message }}</div>
+                            @endif
+                        @enderror
+                    </div>    
+                </div>
+
+                <div class="form-row">
+                    <label for="password_confirmation">パスワード確認</label>
+
+                    <div class="input-area">
+                        <input 
+                            type="password"
+                            name="password_confirmation"
+                            id="password_confirmation"
+                            maxlength="20"
+                            class="@error('password_confirmation') input-error @enderror"
+                        />
+
+                        @error('password_confirmation')
+                            @if ($message !== 'The password confirmation field is required.')
+                                <div class="alert">{{ $message }}</div>
+                            @endif
+                        @enderror
                     </div>
                 </div>
 
                 <div class="form-submit">
-                    <button type="submit">ログイン</button>
+                    <button type="submit">登録</button>
                 </div>
             </form>
         </div>
