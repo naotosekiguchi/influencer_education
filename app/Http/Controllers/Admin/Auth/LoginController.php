@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AdminLoginController extends Controller {
+class LoginController extends Controller {
 
     // ログイン画面表示
-    public function create() {
-        return view('admin.login');
+    public function showLoginForm() {
+        return view('admin.auth.login');
     }
 
     // ログイン処理

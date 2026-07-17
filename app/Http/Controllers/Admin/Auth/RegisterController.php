@@ -1,12 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
 
-class AdminRegisterController extends Controller {
+class RegisterController extends Controller {
+
+    // 管理者新規登録画面表示
+    public function showRegisterForm() {
+        return view('admin.auth.register');
+    }
 
     // 管理者新規登録処理
     public function store(Request $request) {
@@ -61,6 +67,6 @@ class AdminRegisterController extends Controller {
         ]);
 
         // 登録完了後、ログイン画面へ遷移
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.auth.login');
     }
 }
