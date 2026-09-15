@@ -1,0 +1,160 @@
+
+
+/* =========================
+    ベース設定
+    ========================= */
+        /*
+         * ブラウザ標準の余白をリセット
+         * レイアウト計算をシンプルにするため必須
+         */
+         *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            }
+
+        /* =========================
+        戻るリンク
+        ========================= */
+            .back-link {
+                display: inline-block;
+                margin: 0 0 0 30px;
+                text-decoration: none;
+                font-size: 30px;
+                color: #000;
+                height: 32px;
+            }
+
+            .back-link:hover {
+                text-decoration: underline;
+                text-decoration-thickness: 2px;
+            }
+
+        /* =========================
+        スケジュールヘッダー
+        ========================= */
+
+            .schedule-header {
+                display: flex;
+                align-items: flex-start;
+                gap: 30px;
+                margin: 0 0 100px 150px;
+                height: 40px;
+            }
+
+            .schedule-title {
+                display: flex;
+                align-items: baseline;
+                gap: 20px;
+                height: 40px;
+            }
+
+            .schedule-title h2 {
+                font-size: 32px;
+            }
+
+            .month-button {
+                border: none;
+                background: none;
+                font-size: 32px;
+                cursor: pointer;
+            }
+
+            .grade-label {
+                padding: 5px 30px;
+                border-radius: 12px;
+                background: #8ddff4;
+                color: white;
+                font-size: 24px;
+            }
+
+        /* =========================
+        時間割全体
+        ========================= */
+
+            .curriculum-container {
+                display: flex;
+                gap: 80px;
+                margin: 100px;
+            }
+
+        /* =========================
+        学年一覧
+        ========================= */
+
+            .grade-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .grade-button {
+                width: 140px;
+                padding: 3px;
+                border: 1px solid #5fc5d8;
+                border-radius: 20px;
+                background: #8ddff4;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .grade-button:hover {
+                background: #5fc5d8;
+            }
+
+            .junior-high-school{
+                background: #5fe8b8;
+            }
+
+            .junior-high-school:hover {
+                background: #44b08b;
+            }
+
+            .high-school {
+                background: #9ad35d;
+            }
+
+            .high-school:hover {
+                background: #78b53d;
+            }
+
+            /* 学年非活性 */
+            .grade-button:disabled {
+                background: #ccc !important;
+                color: #fff;
+                cursor: not-allowed;
+                opacity: 0.6;
+            }
+
+        /* =========================
+        授業一覧
+        ========================= */
+
+            .lesson-area {
+                display: grid;
+                grid-template-columns: repeat(3, 300px);
+                gap: 60px 50px;
+            }
+
+            .lesson-card {
+                width: 300px;
+                height: 320px;
+                padding: 15px;
+                border: 1px solid #ccc;
+            }
+
+            .lesson-image {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+            }
+
+            .lesson-title {
+                margin: 15px 0;
+                font-size: 20px;
+            }
+
+            .lesson-card p {
+                margin: 3px 0;
+                font-size: 20px;
+            }

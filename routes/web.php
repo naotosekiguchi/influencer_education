@@ -6,10 +6,12 @@ use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\TopController;
 
+use App\Http\Controllers\User\CurriculumController;
+
 Route::get('/', function () {
     return view('welcome');
 });
-
+// 管理者ルート
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('guest:admin')->group(function() {
         Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -39,4 +41,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::post('/logout', [LoginController::class, 'destroy'])
     ->name('logout');
+
+});
+
+// ユーザールート
+Route::prefix('user')->name('user.')->group(function () {
+    Route::get('/curriculum_list', [CurriculumController::class, 'showCurriculumList'])
+        ->name('show.curriculum');
+
 });
