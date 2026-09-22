@@ -1,239 +1,105 @@
-<style>
-/* =========================
-　　  ベース設定
-========================= */
-
-    /* 
-     * ブラウザ標準の余白をリセット
-     * レイアウト計算をシンプルにするため必須
-     */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    /*
-     * 画面全体を中央寄せするラッパー
-     * ・min-height: 100vh → 画面高さいっぱいを確保
-     * ・flex中央寄せ → ログイン画面を常に中央表示
-     * ・padding → スマホで上下が切れないようにする保険
-     */
-    .page-wrapper {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;  /* 横中央 */
-        padding: 40px 20px;       /* 小画面対応（重要） */
-    }
-    .header-link {
-        position: absolute;
-        top: 90px;
-        right: 120px;
-        font-size: 25px;
-        color: #999;
-        text-decoration: none;
-    }
-
-    .header-link:hover {
-        text-decoration: underline;
-    }
-
-    .login-page {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: 120px;
-    }
-
-/* =========================
-　　　　　　タイトル
-========================= */
-    .page-title {
-        margin: 0 0 70px;
-        font-size: 70px;
-        font-weight: normal;
-        color: #757373;
-    }
-
-    .login-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-/* =========================
-　　　　　　入力
-========================= */
-    .form-row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        margin-bottom: 40px;
-    }
-
-    .form-row label {
-        width: 160px;
-        text-align: right;
-        margin-right: 20px;
-        font-size: 22px;
-        color: #807e7e;
-    }
-
-    .form-row input {
-        width: 670px;
-        padding: 8px 10px;
-        border: 1px solid #a2a1a1;
-        font-size: 28px;
-    }
-
-    .input-error {
-        border: 1.5px solid #dc3545 !important;
-    }
-
-    .form-row input:focus {
-        outline: none;
-        border-color: #818080;
-    }
-
-    .input-area {
-        display: flex;
-        flex-direction: column;
-        width: 670px;
-    }
-
-    .input-area input {
-        width: 100%;
-    }
-
-    .input-area .alert {
-        min-height: 20px;
-        margin-top: 5px;
-        font-size: 12px;
-        color: #c00;
-    }
-
-/* =========================
-　　　　　　ボタン
-========================= */
-    .form-submit {
-        margin-top: 30px;
-        text-align: center;
-    }
-
-    .form-submit button {
-        padding: 0px 85px;
-        background: #696868;
-        color: #fff;
-        border: none;
-        font-size: 48px;
-        cursor: pointer;
-    }
-
-    .form-submit button:hover {
-        background: #444;
-    }
-</style>
+@vite('resources/css/admin_register.css')
 
 <div class="page-wrapper">
 
     <a class="header-link" href="{{ route('admin.login') }}">ログインはこちら</a>
 
-        <div class="login-page">
+    <div class="login-page">
 
-            <h1 class="page-title">新規管理ユーザー登録</h1>
+        <h1 class="page-title">新規管理ユーザー登録</h1>
 
-            <form class="login-form" method="POST" action="{{ route('admin.register.store') }}">
-                @csrf
+        <form class="login-form" method="POST" action="{{ route('admin.register.store') }}">
+            @csrf
 
-                <div class="form-row">
-                    <label for="name">ユーザーネーム</label>
+            <div class="form-row">
+                <label for="name">ユーザーネーム</label>
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    value="{{ old('name') }}"
+                    maxlength="255"
+                    class="@error('name') input-error @enderror"
+                />
+            </div>
+
+            <div class="form-row">
+                <label for="kana">カナ</label>
+                <input
+                    type="text"
+                    name="kana"
+                    id="kana"
+                    value="{{ old('kana') }}"
+                    maxlength="255"
+                    class="@error('kana') input-error @enderror"
+                />
+            </div>
+
+            <div class="form-row">
+                <label for="email">メールアドレス</label>
+
+                <div class="input-area">
                     <input
-                        type="text" 
-                        name="name" 
-                        id="name"
-                        value="{{ old('name') }}"
+                        type="text"
+                        name="email"
+                        id="email"
+                        value="{{ old('email') }}"
                         maxlength="255"
-                        class="@error('name') input-error @enderror" 
-                        
+                        class="@error('email') input-error @enderror"
                     />
+
+                    @error('email')
+                        @if ($message !== 'The email field is required.')
+                            <div class="alert">{{ $message }}</div>
+                        @endif
+                    @enderror
                 </div>
-                
-                <div class="form-row">
-                    <label for="kana">カナ</label>
-                    <input 
-                        type="text" 
-                        name="kana" 
-                        id="kana"
-                        value="{{ old('kana') }}"
-                        maxlength="255"
-                        class="@error('kana') input-error @enderror"
+            </div>
+
+            <div class="form-row">
+                <label for="password">パスワード</label>
+
+                <div class="input-area">
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        maxlength="20"
+                        class="@error('password') input-error @enderror"
                     />
+
+                    @error('password')
+                        @if ($message !== 'The password field is required.')
+                            <div class="alert">{{ $message }}</div>
+                        @endif
+                    @enderror
                 </div>
+            </div>
 
-                <div class="form-row">
-                    <label for="email">メールアドレス</label>
+            <div class="form-row">
+                <label for="password_confirmation">パスワード確認</label>
 
-                    <div class="input-area">
-                        <input 
-                            type="text" 
-                            name="email" 
-                            id="email"
-                            value="{{ old('email') }}"
-                            maxlength="255"
-                            class="@error('email') input-error @enderror"
-                        />
+                <div class="input-area">
+                    <input
+                        type="password"
+                        name="password_confirmation"
+                        id="password_confirmation"
+                        maxlength="20"
+                        class="@error('password_confirmation') input-error @enderror"
+                    />
 
-                        @error('email')
-                            @if ($message !== 'The email field is required.')
-                                <div class="alert">{{ $message }}</div>
-                            @endif
-                        @enderror
-                    </div>
+                    @error('password_confirmation')
+                        @if ($message !== 'The password confirmation field is required.')
+                            <div class="alert">{{ $message }}</div>
+                        @endif
+                    @enderror
                 </div>
+            </div>
 
-                <div class="form-row">
-                    <label for="password">パスワード</label>
+            <div class="form-submit">
+                <button type="submit">登録</button>
+            </div>
 
-                    <div class="input-area">
-                        <input 
-                            type="password"
-                            name="password"
-                            id="password"
-                            maxlength="20"
-                            class="@error('password') input-error @enderror"
-                        />
-
-                        @error('password')
-                            @if ($message !== 'The password field is required.')
-                                <div class="alert">{{ $message }}</div>
-                            @endif
-                        @enderror
-                    </div>    
-                </div>
-
-                <div class="form-row">
-                    <label for="password_confirmation">パスワード確認</label>
-
-                    <div class="input-area">
-                        <input 
-                            type="password"
-                            name="password_confirmation"
-                            id="password_confirmation"
-                            maxlength="20"
-                            class="@error('password_confirmation') input-error @enderror"
-                        />
-
-                        @error('password_confirmation')
-                            @if ($message !== 'The password confirmation field is required.')
-                                <div class="alert">{{ $message }}</div>
-                            @endif
-                        @enderror
-                    </div>
-                </div>
-
-                <div class="form-submit">
-                    <button type="submit">登録</button>
-                </div>
-            </form>
-        </div>
+        </form>
     </div>
 </div>

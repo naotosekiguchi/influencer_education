@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller {
@@ -39,13 +40,15 @@ class RegisterController extends Controller {
             'password' => [
                 'required',
                 'min:8',
-                'max:255',
+                'max:20',
                 'regex:/^[a-zA-Z0-9]+$/',
             ],
 
             'password_confirmation' => [
                 'required',
                 'same:password',
+                'min:8',
+                'max:20',
                 'regex:/^[a-zA-Z0-9]+$/',
             ],
         ],
@@ -59,14 +62,17 @@ class RegisterController extends Controller {
         ]);
 
         // 管理者情報を登録
-        Admin::create([
+        $admin = Admin::createAdmin([
             'name' => $request->name,
             'kana' => $request->kana,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-        // 登録完了後、ログイン画面へ遷移
-        return redirect()->route('admin.auth.login');
+        // 登録した管理者をログイン状態にする
+        Auth::guard('admin')->login($admin);
+
+        // 管理トップ画面へ遷移
+        return redirect()->route('admin.top');
     }
 }

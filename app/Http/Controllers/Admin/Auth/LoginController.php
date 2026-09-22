@@ -17,7 +17,8 @@ class LoginController extends Controller {
     public function store(Request $request) {
         $credentials = $request->validate([
             'email' => [
-                'required', 
+                'required',
+                'email',
                 'max:255',
             ],
 
@@ -37,7 +38,7 @@ class LoginController extends Controller {
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/admin/top')->with([
+            return redirect()->route('admin.top')->with([
                 'message' => 'ログインしました'
             ]);
         }
@@ -46,7 +47,7 @@ class LoginController extends Controller {
             'message' => '入力されたメールアドレスまたはパスワードが正しくありません。',
         ])->onlyInput('email');
     }
-    
+
     // ログアウト処理
     public function destroy(Request $request) {
         Auth::guard('admin')->logout();
@@ -57,5 +58,5 @@ class LoginController extends Controller {
 
         return to_route('admin.login');
     }
-    
+
 }

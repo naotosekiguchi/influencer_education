@@ -1,149 +1,9 @@
 @extends('admin.layouts.app')
 
-<style>
-    /* =========================
-    　　　　　　ベース設定
-    ========================= */
-        /* 
-         * ブラウザ標準の余白をリセット
-         * レイアウト計算をシンプルにするため必須
-         */
-        *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        }
-    
-    /* =========================
-    　　　　　　レイアウト
-    ========================= */
-        .banner-container {
-            padding: 5px 270px 50px;
-        }
-    
-    /* =========================
-    　　　　　戻るリンク
-    ========================= */
-        .back-link {
-            display: inline-block;
-            margin: 0 0 10px 30px;
-            text-decoration: none;
-            font-size: 30px;
-            color: #000;
-        }
+@section('styles')
+    @vite('resources/css/admin_banner.css')
+@endsection
 
-        .back-link:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-        }
-
-    /* =========================
-    　　　　　ページタイトル
-    ========================= */
-
-        .page-title {
-            margin: 10px 0 30px 40px;
-            font-size: 43px;
-        }
-    
-    /* =========================
-    　　　　　　バナー
-    ========================= */
-        .banner-item {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            margin-bottom: 10px;
-        }
-
-        .banner-image {
-            width: 240px;
-            height: 140px;
-            object-fit: cover;
-            border: 1px solid #ccc;
-        }
-
-        .btn-delete {
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 50%;
-            background: #ff3b30;
-            color: #fff;
-            font-size: 28px;
-            cursor: pointer;
-        }
-
-        .btn-delete:hover {
-            background: #de270f;
-        }
-
-        .btn-add {
-            margin: 0 200px;
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 50%;
-            background: #0cb63f;
-            color: #fff;
-            font-size: 26px;
-            cursor: pointer;
-        }
-
-        .btn-add:hover {
-            background: #079029;
-        }
-
-        .btn-register {
-            display: block;
-            width: 260px;
-            height: 40px;
-            margin: 40px auto 0;
-            border: none;
-            background-color: #50555a;
-            color: #fff;
-            font-size: 26px;
-            cursor: pointer;
-        }
-
-        .btn-register:hover {
-            background-color: #212325;
-        }
-    
-        .btn-file {
-            display: inline-block;
-            padding: 0px 25px;
-            border: 1px solid #999;
-            background: #f5f5f5;
-            cursor: pointer;
-            font-size: 25px;
-        }
-
-        .btn-file:hover {
-            background: #e5e5e5;
-        }
-
-    /* =========================
-    フラッシュメッセージ
-    ========================= */
-
-        .success-message {
-            position: fixed;
-            top: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 30px;
-            background: #181918;
-            color: #fff;
-            border-radius: 6px;
-            font-size: 18px;
-            box-shadow: 0 3px 8px rgba(0,0,0,.2);
-            opacity: 1;
-            z-index: 9999;
-        }
-    
-    </style>
-    
     @section('content')
 
     <a href="{{ route('admin.top') }}" class="back-link">←戻る</a>
@@ -160,7 +20,7 @@
         action="{{ route('admin.banner.update') }}"
         enctype="multipart/form-data">
     @csrf
-    
+
         <div class="banner-container">
 
             @foreach ($banners as $banner)
@@ -174,7 +34,7 @@
                         name="banner_ids[]"
                         value="{{ $banner->id }}"
                     >
-                
+
                     <input
                         type="file"
                         id="banner{{ $banner->id }}"
@@ -189,7 +49,7 @@
                     >
                         ファイルを選択
                     </label>
-                    
+
                     <button type="button" class="btn-delete">
                         －
                     </button>
@@ -206,7 +66,7 @@
             登録
         </button>
     </form>
-    
+
     <script>
 
         const addButton = document.getElementById('add-banner');
@@ -216,7 +76,7 @@
         addButton.addEventListener('click', function () {
 
             const id = Date.now();
-        
+
             container.insertAdjacentHTML('beforeend', `
                 <div class="banner-item">
         
@@ -243,7 +103,7 @@
         
                 </div>
             `);
-        
+
         });
 
         // バナー削除

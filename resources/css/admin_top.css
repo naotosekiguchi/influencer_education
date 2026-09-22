@@ -1,0 +1,46 @@
+/* =========================
+　　  ベース設定
+========================= */
+    /*
+     * ブラウザ標準の余白をリセット
+     * レイアウト計算をシンプルにするため必須
+     */
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+/* =========================
+　　  レイアウト
+========================= */
+    /*
+    * ・min-height: 100vh → 画面高さいっぱいを確保
+    * ・flex中央寄せ → 管理者情報を横方向に中央配置
+    * ・padding → 画面端との余白を確保
+    */
+    .page-wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;  /* 横中央 */
+        padding: 40px 20px;
+    }
+
+/* =========================
+　　　  管理者情報
+========================= */
+
+    .admin-info-box {
+        margin-top: 110px;
+        width: 1100px;
+        height: 200px;
+        padding: 30px;
+        border: 0.8px solid #191818;
+    }
+
+    .admin-info-row {
+        display: flex;
+        padding: 15px 0;
+        font-size: 22px;
+        color: #898585;
+    }

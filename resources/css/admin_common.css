@@ -1,0 +1,54 @@
+    /* =========================
+    　　  共通ヘッダー
+    ========================= */
+        .admin-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            height: 140px;
+            padding: 0 65px;
+            background-color: #1af3f3fe;
+
+        }
+        .btn-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 220px;
+            height: 60px;
+            border: none;
+            border-radius: 15px;
+            font-size: 30px;
+            color: #fff;
+            background-color: #625f5f;
+        }
+        .btn-header:hover {
+            background-color: #a39f9f;
+        }
+        .logout-form {
+            margin-left: auto;
+        }
+        .btn-logout {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: normal;
+        }
+        .btn-logout:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+        }
+
+    /* =========================
+    　　　　　　ダイアログ
+    ========================= */
+        dialog {
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 5px 20px;
+            font-family: Arial, sans-serif;
+        }
